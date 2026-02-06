@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Monthly Fees & Attendance Report</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h2 class="logo">Tuition Manager</h2>
+
+        <nav>
+            <a href="/dashboard">
+                <i class="fa fa-home"></i> Dashboard
+            </a>
+
+            <a href="/students">
+                <i class="fa fa-user-graduate"></i> Students
+            </a>
+
+            <a href="/fees">
+                <i class="fa fa-rupee-sign"></i> Fees
+            </a>
+
+            <a href="/attendance">
+                <i class="fa fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="/attendance/monthly-report?month=1&year=2026">
+                <i class="fa fa-chart-bar"></i> Monthly Attendance
+            </a>
+
+            <a href="/attendance/monthly-combined-report?month=1&year=2026">
+                <i class="fa fa-layer-group"></i> Fees + Attendance
+            </a>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <!-- PAGE CONTENT HERE -->
+         <div class="main">
+
+    <div class="header">
+        <h2>Monthly Fees & Attendance Report</h2>
+    </div>
+
+    <!-- Filter -->
+    <div class="card-box">
+        <form method="get" class="form-grid">
+            <div class="form-group">
+                <label>Month</label>
+               <select name="month">
+  <option value="1">January</option>
+  <option value="2">February</option>
+  <option value="3">March</option>
+  <option value="4">April</option>
+  <option value="5">May</option>
+  <option value="6">June</option>
+  <option value="7">July</option>
+  <option value="8">August</option>
+  <option value="9">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="12">December</option>
+</select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Year</label>
+                <input type="number" name="year" value="2026" required>
+            </div>
+
+            <div class="form-group">
+                <label>&nbsp;</label>
+                <button class="btn">Generate</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Report -->
+    <!-- Report -->
+<div class="card-box" th:if="${reports != null}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Student</th>
+            <th>Present</th>
+            <th>Absent</th>
+            <th>Fee Paid</th>
+            <th>Fee Pending</th>
+        </tr>
+        </thead>
+       <tbody>
+<tr th:each="r : ${reports}">
+    <td th:text="${r.studentName}"></td>
+    <td th:text="${r.presentCount}"></td>
+    <td th:text="${r.absentCount}"></td>
+    <td th:text="${r.paidAmount}"></td>
+    <td th:text="${r.pendingAmount}"></td>
+</tr>
+</tbody>
+
+    </table>
+</div>
+
+
+</div>
+
+    </main>
+</div>
+
+
+
+</body>
+</html>

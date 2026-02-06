@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="layout">
+    <aside class="sidebar">
+        <h2 class="logo">Tuition Manager</h2>
+
+        <nav>
+            <a href="/dashboard">
+                <i class="fa fa-home"></i> Dashboard
+            </a>
+
+            <a href="/students">
+                <i class="fa fa-user-graduate"></i> Students
+            </a>
+
+            <a href="/fees">
+                <i class="fa fa-rupee-sign"></i> Fees
+            </a>
+
+            <a href="/attendance">
+                <i class="fa fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="/attendance/monthly-report?month=1&year=2026">
+                <i class="fa fa-chart-bar"></i> Monthly Attendance
+            </a>
+
+            <a href="/attendance/monthly-combined-report?month=1&year=2026">
+                <i class="fa fa-layer-group"></i> Fees + Attendance
+            </a>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <!-- PAGE CONTENT HERE -->
+         <div class="main">
+
+    <div class="page-title">Student Management</div>
+
+    <!-- Student Form -->
+    <div class="card-box">
+        <h3>Add New Student</h3>
+        <form th:action="@{/students/save}" method="post" th:object="${student}">
+
+    <input type="hidden" th:field="*{id}">
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" th:field="*{name}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Class / Grade</label>
+            <input type="text" th:field="*{studentClass}">
+        </div>
+
+        <div class="form-group">
+            <label>Subject</label>
+            <input type="text" th:field="*{subject}">
+        </div>
+
+        <div class="form-group">
+            <label>Parent Mobile</label>
+            <input type="text" th:field="*{parentMobile}">
+        </div>
+
+        <div class="form-group">
+            <label>Monthly Fee (₹)</label>
+            <input type="number" th:field="*{monthlyFee}">
+        </div>
+
+    </div>
+
+    <br>
+    <button class="btn" type="submit"
+        th:text="${student.id == null ? 'Save Student' : 'Update Student'}">
+    </button>
+</form>
+
+    </div>
+
+    <!-- Student List -->
+    <div class="card-box">
+        <h3>Student List</h3>
+
+       <table class="table">
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Class</th>
+    <th>Subject</th>
+    <th>Fee</th>
+    <th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+<tr th:each="s : ${students}">
+    <td th:text="${s.name}"></td>
+    <td th:text="${s.studentClass}"></td>
+    <td th:text="${s.subject}"></td>
+    <td>₹ <span th:text="${s.monthlyFee}"></span></td>
+    <td>
+        <a th:href="@{/students/edit/{id}(id=${s.id})}" class="btn" style="background:#f59e0b;">Edit</a>
+        <a th:href="@{/students/delete/{id}(id=${s.id})}"
+           class="btn" style="background:#dc2626;"
+           onclick="return confirm('Are you sure?')">
+           Delete
+        </a>
+    </td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+</div>
+
+    </main>
+</div>
+
+
+
+</body>
+</html>
