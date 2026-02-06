@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fee Receipt</title>
+    <style>
+        body { font-family: Arial; background:#f9fafb; }
+        .receipt {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border: 2px solid #000;
+        }
+        h2 { text-align: center; }
+        table { width: 100%; margin-top: 20px; }
+        td { padding: 8px; }
+        .footer { margin-top: 40px; display:flex; justify-content:space-between; }
+        .btn { margin-top:20px; text-align:center; }
+    </style>
+</head>
+<body>
+
+<div class="receipt">
+    <h2>Tuition Fee Receipt</h2>
+    <hr>
+
+    <table>
+        <tr>
+            <td><b>Receipt No:</b></td>
+            <td th:text="${fee.receiptNo}"></td>
+        </tr>
+        <tr>
+            <td><b>Student Name:</b></td>
+            <td th:text="${fee.student.name}"></td>
+        </tr>
+        <tr>
+            <td><b>Class:</b></td>
+            <td th:text="${fee.student.studentClass}"></td>
+        </tr>
+        <tr>
+            <td><b>Month:</b></td>
+            <td th:text="${fee.month}"></td>
+        </tr>
+        <tr>
+            <td><b>Year:</b></td>
+            <td th:text="${fee.year}"></td>
+        </tr>
+        <tr>
+            <td><b>Amount Paid:</b></td>
+            <td>₹ <span th:text="${fee.amount}"></span></td>
+        </tr>
+        <tr>
+            <td><b>Paid Date:</b></td>
+            <td th:text="${fee.paidDate}"></td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <div>Signature</div>
+        <div>Authorized</div>
+    </div>
+
+    <div class="btn">
+        <button onclick="window.print()">🖨️ Print Receipt</button>
+    </div>
+</div>
+
+</body>
+</html>

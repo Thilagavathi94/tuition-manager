@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="layout">
+    <aside class="sidebar">
+        <h2 class="logo">Tuition Manager</h2>
+
+        <nav>
+            <a href="/dashboard">
+                <i class="fa fa-home"></i> Dashboard
+            </a>
+
+            <a href="/students">
+                <i class="fa fa-user-graduate"></i> Students
+            </a>
+
+            <a href="/fees">
+                <i class="fa fa-rupee-sign"></i> Fees
+            </a>
+
+            <a href="/attendance">
+                <i class="fa fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="/attendance/monthly-report?month=1&year=2026">
+                <i class="fa fa-chart-bar"></i> Monthly Attendance
+            </a>
+
+            <a href="/attendance/monthly-combined-report?month=1&year=2026">
+                <i class="fa fa-layer-group"></i> Fees + Attendance
+            </a>
+            <a href="/monthly-mark?month=2&year=2026">
+    <i class="fa fa-calendar-alt"></i> Monthly Mark
+</a>
+
+    <a href="/parent-report">
+        📄 Parent Report
+    </a>
+
+
+
+        </nav>
+    </aside>
+
+    <main class="content">
+        <!-- PAGE CONTENT HERE -->
+         <div class="main">
+
+    <div class="header">
+        <h2>Dashboard Overview</h2>
+    </div>
+
+    <!-- ALL CARDS MUST BE INSIDE THIS DIV -->
+    <div class="cards">
+
+        <!-- Students -->
+        <div class="card">
+            <h3>Total Students</h3>
+            <p class="blue" th:text="${studentCount}">0</p>
+        </div>
+
+        <!-- Fees -->
+        <div class="card">
+            <h3>Total Collected</h3>
+            <p class="green">₹ <span th:text="${totalCollected}">0</span></p>
+        </div>
+
+        <div class="card">
+            <h3>Total Pending</h3>
+            <p class="red">₹ <span th:text="${totalPending}">0</span></p>
+        </div>
+
+        <div class="card">
+            <h3>Pending Fees</h3>
+            <p class="red" th:text="${pendingCount}">0</p>
+        </div>
+
+        <!-- Attendance -->
+        <div class="card">
+            <h3>Today Present</h3>
+            <p class="green" th:text="${todayPresent}">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Today Absent</h3>
+            <p class="red" th:text="${todayAbsent}">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Present</h3>
+            <p class="green" th:text="${totalPresent}">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Absent</h3>
+            <p class="red" th:text="${totalAbsent}">0</p>
+        </div>
+
+    </div>
+
+</div>
+
+    </main>
+</div>
+
+
+
+<!-- Main Content -->
+
+</body>
+</html>

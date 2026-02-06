@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 230px;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    margin-bottom: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.sidebar nav a:hover {
+    background: #334155;
+    color: #fff;
+}
+
+.content {
+    flex: 1;
+    padding: 25px;
+}
+
+.header {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #475569;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.green { color: #16a34a; }
+.red { color: #dc2626; }
+.blue { color: #2563eb; }
+/* Page title */
+.page-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+/* Card container */
+.card-box {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+/* Form grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: start; /* KEY FIX */
+}
+
+/* Labels aligned uniformly */
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px; /* SAME spacing */
+    color: #475569;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+.form-group input[type="date"],
+.form-group input[type="text"],
+.form-group select {
+    height: 42px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Table styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th {
+    background-color: #f1f5f9;
+    text-align: left;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.table tr:hover {
+    background-color: #f9fafb;
+}
+select {
+    width: 100%;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+.status-present {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.status-absent {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+
+.radio-group label {
+    font-size: 14px;
+}
+/* Attendance specific fix */
+.status-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.status-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+/* Ensure inputs same height */
+.form-group input,
+.form-group select {
+    height: 42px;
+}
+.sidebar a i {
+    width: 18px;
+    text-align: center;
+}
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+/* Attendance Form UI */
+.attendance-form {
+    margin-top: 15px;
+}
+
+.attendance-form .form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.attendance-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.attendance-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.attendance-form input,
+.attendance-form select {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.attendance-form input:focus,
+.attendance-form select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn-primary:hover {
+    background: #1e40af;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
